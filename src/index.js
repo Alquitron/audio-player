@@ -250,7 +250,7 @@ ${customColorScheme}
         <Search
           value={query}
           onChange={(e) => updateQuery(e.target.value.toLowerCase())}
-          placeholder={`Search ${trackList.length} tracks...`}
+          placeholder={`Buscar en ${trackList.length} audios...`}
         />
       )}
       <PlayerTemplate>
