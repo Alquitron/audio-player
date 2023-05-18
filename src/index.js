@@ -293,15 +293,17 @@ ${customColorScheme}
         </div>
       </PlayerTemplate>
       
-      {includeSearch && (
+
+      
+      {showPlaylist && (
+        {includeSearch && (
         <Search
           value={query}
           onChange={(e) => updateQuery(e.target.value.toLowerCase())}
           placeholder={`Buscar en ${trackList.length} audios...`}
         />
-      )}
-      
-      {showPlaylist && (
+        )}
+
         <PlaylistTemplate>
           {trackList
             .sort((a, b) => (a.title > b.title ? 1 : -1))
