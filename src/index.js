@@ -1,34 +1,33 @@
-import styles from "./styles/Player.module.css";
-import { createGlobalStyle } from "styled-components";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import PageTemplate from "./components/PageTemplate";
-import PlayerTemplate from "./components/PlayerTemplate";
-import Title from "./components/Title";
-import Time from "./components/Time";
-import Progress from "./components/Progress";
 import ButtonsBox from "./components/ButtonsBox";
 import LoopCurrent from "./components/LoopCurrent";
-import Previous from "./components/Previous";
-import Play from "./components/Play";
-import Pause from "./components/Pause";
 import Next from "./components/Next";
-import Shuffle from "./components/Shuffle";
-import Volume from "./components/Volume";
-import PlaylistTemplate from "./components/PlaylistTemplate";
+import PageTemplate from "./components/PageTemplate";
+import Pause from "./components/Pause";
+import Play from "./components/Play";
+import PlayerTemplate from "./components/PlayerTemplate";
 import PlaylistItem from "./components/PlaylistItem";
-import TagsTemplate from "./components/TagsTemplate";
-import TagItem from "./components/TagItem";
+import PlaylistTemplate from "./components/PlaylistTemplate";
+import Previous from "./components/Previous";
+import Progress from "./components/Progress";
 import Search from "./components/Search";
-
+import Shuffle from "./components/Shuffle";
+import TagItem from "./components/TagItem";
+import TagsTemplate from "./components/TagsTemplate";
+import Time from "./components/Time";
+import Title from "./components/Title";
+import Volume from "./components/Volume";
+import { createGlobalStyle } from "styled-components";
 import loopCurrentBtn from "icons/loop_current.png";
 import loopNoneBtn from "icons/loop_none.png";
-import previousBtn from "icons/previous.png";
-import playBtn from "icons/play.png";
-import pauseBtn from "icons/pause.png";
 import nextBtn from "icons/next.png";
+import pauseBtn from "icons/pause.png";
+import playBtn from "icons/play.png";
+import previousBtn from "icons/previous.png";
 import shuffleAllBtn from "icons/shuffle_all.png";
 import shuffleNoneBtn from "icons/shuffle_none.png";
+import styles from "./styles/Player.module.css";
 
 const colors = `html{
     --tagsBackground: #9440f3;
@@ -292,19 +291,16 @@ ${customColorScheme}
           />
         </div>
       </PlayerTemplate>
-      
-
-      
+    
       {showPlaylist && (
-        {includeSearch && (
-        <Search
-          value={query}
-          onChange={(e) => updateQuery(e.target.value.toLowerCase())}
-          placeholder={`Buscar en ${trackList.length} audios...`}
-        />
-        )}
-
         <PlaylistTemplate>
+          {includeSearch && (
+            <Search
+              value={query}
+              onChange={(e) => updateQuery(e.target.value.toLowerCase())}
+              placeholder={`Buscar en ${trackList.length} audios...`}
+            />
+          )}
           {trackList
             .sort((a, b) => (a.title > b.title ? 1 : -1))
             .map((el, index) => {
