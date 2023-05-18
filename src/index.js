@@ -246,13 +246,7 @@ ${customColorScheme}
           })}
         </TagsTemplate>
       )}
-      {includeSearch && (
-        <Search
-          value={query}
-          onChange={(e) => updateQuery(e.target.value.toLowerCase())}
-          placeholder={`Buscar en ${trackList.length} audios...`}
-        />
-      )}
+
       <PlayerTemplate>
         <div className={styles.title_time_wrapper}>
           <Title title={title} />
@@ -298,7 +292,15 @@ ${customColorScheme}
           />
         </div>
       </PlayerTemplate>
-
+      
+      {includeSearch && (
+        <Search
+          value={query}
+          onChange={(e) => updateQuery(e.target.value.toLowerCase())}
+          placeholder={`Buscar en ${trackList.length} audios...`}
+        />
+      )}
+      
       {showPlaylist && (
         <PlaylistTemplate>
           {trackList
